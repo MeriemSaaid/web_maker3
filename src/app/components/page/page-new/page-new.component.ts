@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class PageNewComponent implements OnInit {
   uid: string;
   wid: string;
-  page: Page = {name: "",title: "", websiteId: ""};
+  page: Page = { name: "", title: "", websiteId: "" };
   name: string;
   title: string;
   pages: Page[];
@@ -29,13 +29,12 @@ export class PageNewComponent implements OnInit {
     });
   }
   add() {
-      this.page.websiteId=this.wid;
-      this.pageservice.createPage(this.page).subscribe(
-        (create: any) => {
-         this.router.navigate(["user", this.uid, "website", this.wid, "page"]);
-        },
-        (error: any) => (this.error_form = true)
-      );
-    }
+    this.page.websiteId = this.wid;
+    this.pageservice.createPage(this.page).subscribe(
+      (create: any) => {
+        this.router.navigate(["user", this.uid, "website", this.wid, "page"]);
+      },
+      (error: any) => (this.error_form = true)
+    );
   }
 }

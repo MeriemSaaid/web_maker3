@@ -34,25 +34,13 @@ export class WidgetListComponent implements OnInit {
     });
   }
 
-  /*parseYoutubeSrc(src) {
+  parseYoutubeSrc(src) {
     //   Transfer video url into embeded video url
     let embedUrl: string = "https://www.youtube.com/embed/";
     const splitUrl: string[] = src.split("/");
     embedUrl += splitUrl[splitUrl.length - 1];
 
     // Telling browser this src is safe
-    return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-  }*/
-  getYoutubeUrl(url) {
-    let embedUrl = "https://www.youtube.com/embed/";
-    if (!url) {
-      return;
-    }
-    const parsedUrl = url.split("/");
-    // tranfer video url into emebed video url
-    embedUrl += parsedUrl[parsedUrl.length - 1];
-
-    // telling browser this src is safe
     return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 }

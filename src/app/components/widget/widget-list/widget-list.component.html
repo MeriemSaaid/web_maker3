@@ -66,18 +66,21 @@
         </div>
       </div>
       <div *ngSwitchCase="'IMAGE'">
-        <div><img [src]="widget.url" [style.width]="widget.width" /></div>
+        <div>
+          <img
+            [style.height]="500"
+            [src]="widget.url"
+            [style.width]="widget.width"
+          />
+        </div>
       </div>
       <br />
       <div *ngSwitchCase="'YOUTUBE'">
         <div class="embed-responsive embed-responsive-16by9">
           <iframe
-            [src]="this.getYoutubeUrl(widget.url)"
+            [src]="parseYoutubeSrc(widget.url)"
             [style.width]="widget.width"
-            frameborder="0"
-            allow="autoplay; encrypted-media"
             allowfullscreen
-            class="frame-youtube"
           ></iframe>
         </div>
       </div>

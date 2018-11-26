@@ -42,15 +42,17 @@ export class WebsiteEditComponent implements OnInit {
   }
   //Update a website
   updateWebsite() {
-    
     this.websiteservice.updateWebsite(this.website).subscribe((up: any) => {
       //console.log(website);
       this.router.navigate(["/user/" + this.uid + "/website"]);
     });
   }
   //Delete a website
-  deleteWebsite() {
-    this.websiteservice.deleteWebsite(this.wid).subscribe((up: any) => {
-    this.router.navigate(["/user/" + this.uid + "/website"]);
-   
+  delete() {
+    this.websiteservice
+      .deleteWebsite(this.wid)
+      .subscribe((websites: Website[]) => {
+        this.router.navigate(["user", this.uid, "website"]);
+      });
+  }
 }
