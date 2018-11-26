@@ -48,7 +48,7 @@ export class WebsiteEditComponent implements OnInit {
     });
   }
   //Delete a website
-  delete() {
+  deleteWebsite() {
     this.websiteservice
       .deleteWebsite(this.wid)
       .subscribe((websites: Website[]) => {
